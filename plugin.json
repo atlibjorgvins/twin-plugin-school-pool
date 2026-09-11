@@ -1,0 +1,17 @@
+{
+  "id": "school-pool",
+  "name": "School Pool",
+  "description": "The school week for the children in your contacts: timetable, pickup times and who collects, holidays and special days, the kit each day needs, and the lunch menu you type in once a week.",
+  "category": "Productivity",
+  "tier": "public",
+  "twinPluginApi": "1",
+  "author": "Atli Bjorgvins",
+  "collections": ["school_enrollment", "school_slot", "school_day", "school_menu"],
+  "routes": ["/tools/school-pool"],
+  "dependsOn": ["contacts"],
+  "install": {
+    "lib": "src/lib/plugins/school-pool",
+    "routes": "src/routes (this repo's routes/ subtree is copied in verbatim by scripts/fetch-plugins.sh)",
+    "note": "Run scripts/add-school-pool.sh from the twin repo root, add the four collections to PERSONAL in scripts/add-member-role.sh and re-run it, then register the manifest in src/lib/plugins/registry.ts and add 'school-pool' to src/lib/plugins/keys.ts."
+  }
+}
