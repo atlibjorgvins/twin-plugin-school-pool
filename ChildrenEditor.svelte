@@ -255,7 +255,7 @@
 
     <label class="text-xs text-ink-500">
       School
-      <input class="input mt-1" bind:value={draft.school_name} placeholder="Melaskóli" />
+      <input class="input mt-1" bind:value={draft.school_name} placeholder="Hverfisskólinn" />
     </label>
 
     <label class="text-xs text-ink-500">

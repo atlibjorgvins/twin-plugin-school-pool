@@ -20,7 +20,7 @@ const child = (over: Partial<SchoolEnrollment> = {}): SchoolEnrollment => ({
   id: 1,
   person_id: 100,
   organization_id: null,
-  school_name: 'Melaskóli',
+  school_name: 'Hverfisskólinn',
   class_label: '3. bekkur',
   teacher_name: null,
   color: null,
@@ -41,7 +41,7 @@ const slot = (over: Partial<SchoolSlot> = {}): SchoolSlot => ({
   title: 'Sund',
   start_time: '10:00:00',
   end_time: '11:00:00',
-  location: 'Vesturbæjarlaug',
+  location: 'Sundlaugin',
   responsible_person_id: null,
   gear: ['Swim kit'],
   week_parity: 'every',
@@ -71,7 +71,7 @@ const dated = (over: Partial<SchoolDay> = {}): SchoolDay => ({
 const menuRow = (over: Partial<SchoolMenuEntry> = {}): SchoolMenuEntry => ({
   id: 1,
   organization_id: null,
-  school_name: 'Melaskóli',
+  school_name: 'Hverfisskólinn',
   date: '2026-09-10',
   meal: 'lunch',
   main: 'Fiskur í raspi',
@@ -224,14 +224,14 @@ describe('planDay', () => {
     assert.equal(a.menu?.main, 'Fiskur í raspi');
     assert.equal(b.menu?.main, 'Fiskur í raspi');
 
-    const other = planDay(child({ id: 3, school_name: 'Hagaskóli' }), '2026-09-10', input);
+    const other = planDay(child({ id: 3, school_name: 'Bæjarskólinn' }), '2026-09-10', input);
     assert.equal(other.menu, null);
   });
 
   it('prefers the organization record over the name when keying a school', () => {
-    assert.equal(menuKey(42, 'Melaskóli'), 'org:42');
-    assert.equal(menuKey(null, ' Melaskóli '), 'name:melaskóli');
-    assert.notEqual(menuKey(42, 'Melaskóli'), menuKey(null, 'Melaskóli'));
+    assert.equal(menuKey(42, 'Hverfisskólinn'), 'org:42');
+    assert.equal(menuKey(null, ' Hverfisskólinn '), 'name:hverfisskólinn');
+    assert.notEqual(menuKey(42, 'Hverfisskólinn'), menuKey(null, 'Hverfisskólinn'));
   });
 
   it('serves no lunch on a closed day', () => {

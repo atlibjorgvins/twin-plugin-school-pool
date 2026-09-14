@@ -277,7 +277,7 @@
 
     <label class="text-xs text-ink-500 sm:col-span-2">
       Where
-      <input class="input mt-1" bind:value={draft.location} placeholder="Vesturbæjarlaug, the side gate…" />
+      <input class="input mt-1" bind:value={draft.location} placeholder="Sundlaugin, the side gate…" />
     </label>
 
     {#if draft.kind === 'pickup' || draft.kind === 'dropoff'}
